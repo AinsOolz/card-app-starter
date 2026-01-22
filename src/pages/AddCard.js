@@ -10,5 +10,8 @@ export default function AddCard() {
     - handle busy and error states
     - style as a form UI */
 
-  return <main></main>;
+  return
+  <main>
+    <h1>Main</h1>
+  </main>;
 }
