@@ -5,8 +5,11 @@ export default function Home() {
     - display instructions
     - link to Cards page
     - style as a landing page */
-  return 
-  <main>
-    <h1>Home</h1>
-  </main>;
+  return (
+    <main>
+      <h1>Welcome to Card App</h1>
+      <p>Manage your card collection here.</p>
+      <Link to="/cards">View Cards</Link>
+    </main>
+  );
 }

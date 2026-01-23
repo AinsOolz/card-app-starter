@@ -6,12 +6,39 @@ export default function CardForm({
   error,
   submitText,
 }) {
-  /* TODO: Complete the CardForm component 
-  - display form inputs for card_name and card_pic
-  - display error message
-  - display submit button 
-  - handle form submission 
-  - style as a form UI */
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(values);
+  };
 
-  return <form></form>;
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="card_name">Card Name:</label>
+        <input
+          type="text"
+          id="card_name"
+          name="card_name"
+          value={values.card_name || ''}
+          onChange={onChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="card_image">Card Image URL:</label>
+        <input
+          type="url"
+          id="card_image"
+          name="card_image"
+          value={values.card_image || ''}
+          onChange={onChange}
+          required
+        />
+      </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button type="submit" disabled={busy}>
+        {busy ? 'Adding...' : submitText}
+      </button>
+    </form>
+  );
 }
