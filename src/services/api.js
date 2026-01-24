@@ -36,9 +36,19 @@ export async function addCard(card) {
   return res.json();
 }
 
-export function updateCard(id, card) {
-  // TODO: implement PUT /updatecard/:id
+export async function updateCard(id, card) {
+  const res = await fetch(`${API_URL}/updatecard/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(card),
+  });
+
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
 }
+
 
 export async function deleteCard(id) {
   const res = await fetch(`${API_URL}/deletecard/${id}`, {
